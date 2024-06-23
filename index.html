@@ -3,31 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAP CPI Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Data Fetching Example</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>SAP CPI Dashboard</h1>
-    </header>
-    <main>
-        <section id="input-section">
-            <input type="date" id="from-date" placeholder="From Date">
-            <input type="date" id="to-date" placeholder="To Date">
-            <button onclick="loadData()">Fetch Data</button>
-        </section>
-        <section id="monitoring">
-            <h2>Monitoring Information</h2>
-            <div id="monitoring-data" class="data-container">Waiting for input...</div>
-        </section>
-        <section id="keystore">
-            <h2>Keystore Expiry Information</h2>
-            <div id="keystore-data" class="data-container">Waiting for input...</div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-    </footer>
-    <script src="scripts.js"></script>
+    <div class="container">
+        <h1>Data Fetching Example</h1>
+        <form id="data-form">
+            <label for="from-date">From Date:</label>
+            <input type="date" id="from-date" name="from-date" required>
+            <label for="to-date">To Date:</label>
+            <input type="date" id="to-date" name="to-date" required>
+            <button type="submit">Load Data</button>
+        </form>
+        <div id="monitoring-data" class="data-container"></div>
+        <div id="keystore-data" class="data-container"></div>
+    </div>
+
+    <script src="server.js"></script>
 </body>
 </html>
