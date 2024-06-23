@@ -1,6 +1,7 @@
-async function fetchData(endpoint) {
+async function fetchData(fromDate, toDate) {
+    const endpoint = 'https://cda3fd4dtrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/test'; // Replace with your actual SAP CPI endpoint
     try {
-        const response = await fetch(endpoint, {
+        const response = await fetch(`${endpoint}?fromDate=${fromDate}&toDate=${toDate}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,14 +25,16 @@ function displayData(containerId, data) {
 }
 
 async function loadData() {
-    const endpoint = document.getElementById('cpi-endpoint').value;
-    if (!endpoint) {
-        alert('Please enter a valid SAP CPI endpoint.');
+    const fromDate = document.getElementById('from-date').value;
+    const toDate = document.getElementById('to-date').value;
+
+    if (!fromDate || !toDate) {
+        alert('Please enter both From Date and To Date.');
         return;
     }
 
-    const monitoringData = await fetchData(`${endpoint}/monitoring-endpoint`); // Replace with actual endpoint
-    const keystoreData = await fetchData(`${endpoint}/keystore-endpoint`); // Replace with actual endpoint
+    const monitoringData = await fetchData(fromDate, toDate);
+    const keystoreData = await fetchData(fromDate, toDate);
 
     displayData('monitoring-data', monitoringData);
     displayData('keystore-data', keystoreData);
