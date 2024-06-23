@@ -11,13 +11,17 @@
         <h1>SAP CPI Dashboard</h1>
     </header>
     <main>
+        <section id="input-section">
+            <input type="text" id="cpi-endpoint" placeholder="https://cda3fd4dtrial.it-cpitrial03-rt.cfapps.ap21.hana.ondemand.com/http/test">
+            <button onclick="loadData()">Fetch Data</button>
+        </section>
         <section id="monitoring">
             <h2>Monitoring Information</h2>
-            <div id="monitoring-data" class="data-container"></div>
+            <div id="monitoring-data" class="data-container">Waiting for input...</div>
         </section>
         <section id="keystore">
             <h2>Keystore Expiry Information</h2>
-            <div id="keystore-data" class="data-container"></div>
+            <div id="keystore-data" class="data-container">Waiting for input...</div>
         </section>
     </main>
     <footer>
